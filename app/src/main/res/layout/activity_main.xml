@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="myViewModel"
+            type="com.example.kotlinrecyclerview.SubscriberViewModel" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,7 +25,9 @@
             android:ems="10"
             android:hint="Subscriber's name"
             android:inputType="textPersonName"
+            android:text="@={myViewModel.inputName}"
             android:textStyle="bold" />
+
         <EditText
             android:id="@+id/email_text"
             android:layout_width="match_parent"
@@ -30,6 +38,7 @@
             android:ems="10"
             android:hint="Subscriber's email"
             android:inputType="textPersonName"
+            android:text="@={myViewModel.inputEmail}"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -42,6 +51,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="@{()->myViewModel.saveOrUpdate()}"
+                android:text="@={myViewModel.saveOrUpdateButtonText}"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -50,6 +61,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="@{()->myViewModel.clearAllOrDelete()}"
+                android:text="@={myViewModel.clearAllOrDeleteButtonText}"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
